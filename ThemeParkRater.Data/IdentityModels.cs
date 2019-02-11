@@ -34,6 +34,7 @@ namespace ThemeParkRater.WebMVC.Data
         }
 
         public DbSet<ThemePark> ThemeParks { get; set; }
+        public DbSet<ThemeParkRating> Ratings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
