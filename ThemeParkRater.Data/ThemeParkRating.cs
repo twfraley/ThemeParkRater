@@ -12,10 +12,12 @@ namespace ThemeParkRater.Data
         [Key]
         public int ThemeParkRatingID { get; set; }
         [Required]
+        public Guid OwnerID { get; set; }
+        [Required]
         public float GoodnessLevel { get; set; }
         [Required]
         public int ThemeParkID { get; set; }
-
         public virtual ThemePark ThemePark { get; set; }
+
     }
 }
