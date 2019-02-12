@@ -11,7 +11,6 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using ThemeParkRater.WebMVC.Data;
-using ThemeParkRater.WebMVC.Models;
 
 namespace ThemeParkRater.WebMVC
 {

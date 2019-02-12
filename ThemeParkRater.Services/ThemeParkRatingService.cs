@@ -75,6 +75,22 @@ namespace ThemeParkRater.Services
             }
         }
 
+        public bool DeleteThemeParkRating(int ratingID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var rating = ctx.Ratings.Single(r => r.ThemeParkRatingID == ratingID);
+
+                ctx.Ratings.Remove(rating);
+                if (ctx.SaveChanges() == 1)
+                {
+                    CalculateGoodness(rating.ThemeParkID);
+                    return true;
+                }
+                return false;
+            }
+        }
+
         private bool CalculateGoodness(int parkID)
         {
             using (var ctx = new ApplicationDbContext())

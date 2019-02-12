@@ -89,11 +89,5 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ThemeParkRater.WebMVC\ThemeParkRater.WebMVC.csproj">
-      <Project>{45ba96a8-e5fc-405d-a9dd-c87681d20c86}</Project>
-      <Name>ThemeParkRater.WebMVC</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
