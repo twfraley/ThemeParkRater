@@ -244,10 +244,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\ThemePark\Index.cshtml" />
     <Content Include="Views\ThemePark\Create.cshtml" />
+    <Content Include="Views\ThemeParkRating\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\ThemeParkRating\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
