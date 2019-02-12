@@ -32,7 +32,44 @@ namespace ThemeParkRater.Services
                 ctx.Ratings.Add(rating);
                 if (ctx.SaveChanges() == 1)
                 {
-                    return CalculateGoodness(model.ThemeParkID);
+                    CalculateGoodness(model.ThemeParkID);
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        public IEnumerable<ThemeParkRatingListItem> GetRatingsByParkID(int parkID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Ratings.Where(r => r.ThemeParkID == parkID)
+                    .Select(r => new ThemeParkRatingListItem
+                    {
+                        ThemeParkRatingID = r.ThemeParkRatingID,
+                        ThemeParkName = r.ThemePark.ThemeParkName,
+                        ThemeParkID = r.ThemeParkID,
+                        GoodnessLevel = r.GoodnessLevel,
+                        ThemeParkState = r.ThemePark.ThemeParkState
+                    });
+
+                return query.ToArray();
+            }
+        }
+
+        public bool EditThemeParkRating(ThemeParkRatingEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Ratings.Single(r => r.ThemeParkRatingID == model.ThemeParkRatingID);
+                entity.GoodnessLevel = model.GoodnessLevel;
+                entity.ThemeParkID = model.ThemeParkID;
+
+                ctx.Ratings.Add(entity);
+                if (ctx.SaveChanges() == 1)
+                {
+                    CalculateGoodness(model.ThemeParkID);
+                    return true;
                 }
                 return false;
             }
