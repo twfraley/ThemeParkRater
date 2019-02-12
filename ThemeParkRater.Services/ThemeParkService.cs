@@ -25,15 +25,13 @@ namespace ThemeParkRater.Services
                 ctx.ThemeParks.Add(themePark);
                 return ctx.SaveChanges() == 1;
             }
-
         }
 
         public bool EditThemePark(ThemeParkEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity = ctx.ThemeParks
-                    .FirstOrDefault
+                var entity = ctx.ThemeParks.FirstOrDefault
                     (park => park.ThemeParkID == model.ThemeParkID);
 
                 entity.ThemeParkID = model.ThemeParkID;
@@ -105,6 +103,7 @@ namespace ThemeParkRater.Services
                 return totalGoodness;
             }
         }
+
 
     }
 }

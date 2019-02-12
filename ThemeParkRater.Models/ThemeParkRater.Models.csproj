@@ -80,6 +80,10 @@
     <Compile Include="ThemeParkModels\ThemeParkDetail.cs" />
     <Compile Include="ThemeParkModels\ThemeParkEdit.cs" />
     <Compile Include="ThemeParkModels\ThemeParkListItem.cs" />
+    <Compile Include="ThemeParkRatingModels\ThemeParkRatingCreate.cs" />
+    <Compile Include="ThemeParkRatingModels\ThemeParkRatingDetails.cs" />
+    <Compile Include="ThemeParkRatingModels\ThemeParkRatingEdit.cs" />
+    <Compile Include="ThemeParkRatingModels\ThemeParkRatingListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
