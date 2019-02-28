@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ThemeParkRater.Models.ThemeParkRatingModels
 {
-    class ThemeParkRatingDetails
+    public class ThemeParkRatingDetails
     {
         public int ThemeParkRatingID { get; set; }
         public float GoodnessLevel { get; set; }

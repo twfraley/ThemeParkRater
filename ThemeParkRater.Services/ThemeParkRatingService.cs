@@ -57,6 +57,24 @@ namespace ThemeParkRater.Services
             }
         }
 
+        public ThemeParkRatingDetails GetRatingsByRatingID(int ratingID)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query = ctx.Ratings.Single(r => r.ThemeParkRatingID == ratingID);
+
+                var model = new ThemeParkRatingDetails
+                {
+                    ThemeParkRatingID = query.ThemeParkRatingID,
+                    ThemeParkName = query.ThemePark.ThemeParkName,
+                    ThemeParkID = query.ThemeParkID,
+                    GoodnessLevel = query.GoodnessLevel,
+                };
+
+                return model;
+            }
+        }
+
         public bool EditThemeParkRating(ThemeParkRatingEdit model)
         {
             using (var ctx = new ApplicationDbContext())
